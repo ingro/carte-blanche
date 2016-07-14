@@ -15,7 +15,7 @@ function emitAssets(compilation, assets, subFolder, callback) {
   const rootPath = isString(subFolder) && subFolder || '';
   // Emit carte-blanche assets
   Object.keys(assets).forEach((filename) => {
-    compilation.assets[path.join(rootPath, filename)] = { // eslint-disable-line no-param-reassign
+    compilation.assets[path.posix.join(rootPath, filename)] = { // eslint-disable-line no-param-reassign
       source: () => assets[filename],
       size: () => assets[filename].length,
     };
